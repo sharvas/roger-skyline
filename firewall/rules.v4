@@ -1,0 +1,88 @@
+*filter
+
+#Flush all rules
+-F
+-X
+
+# Create portscan chain
+-N portscan
+-A portscan -j LOG --log-level 4 --log-prefix "Port scanning"
+-A portscan -j DROP
+
+# Create icmp-flood chain
+-N icmp-flood
+-A icmp-flood -j LOG --log-level 4 --log-prefix "icmp-flood"
+-A icmp-flood -j DROP
+
+# Create UDP-flood chain
+-N udp-flood
+-A udp-flood -j LOG --log-level 4 --log-prefix "UDP-flood"
+-A udp-flood -j DROP
+
+# Create SYN-flood chain
+-N syn-flood
+-A syn-flood -j LOG --log-level 4 --log-prefix "SYN-flood"
+-A syn-flood -j DROP
+
+# Drop all traffic policies
+-P INPUT DROP
+-P FORWARD DROP
+-P OUTPUT DROP
+
+# Keep established and related traffic
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Accept loopback
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+
+# Drop invalid packet
+-A INPUT -m state --state INVALID -j DROP
+-A FORWARD -m state --state INVALID -j DROP
+-A OUTPUT -m state --state INVALID -j DROP
+
+# Null scan protection
+-A INPUT -m recent --update --seconds 10 -j portscan
+-A INPUT -p tcp --tcp-flags ALL NONE -m recent --set -j DROP
+
+# Xmax scan protection
+-A INPUT -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -m recent --set -j DROP
+-A INPUT -p tcp --tcp-flags ALL FIN,PSH,URG -m recent --set -j DROP
+-A INPUT -p tcp --tcp-flags ALL ALL -m recent --set -j DROP
+
+# Fin scan protection
+-A INPUT -p tcp --tcp-flags ALL FIN -m recent --set -j DROP
+
+# ACK scan protection
+-A INPUT -p tcp ! --syn -m state --state NEW -m recent --set -j DROP
+
+# Allow ping
+-A INPUT -p icmp -m recent --name icmpflooders --update --seconds 10 -j icmp-flood
+-A INPUT -p icmp -m limit --limit 4/s --limit-burst 10 -j ACCEPT
+-A INPUT -p icmp -m recent --name icmpflooders --set  -j DROP
+-A OUTPUT -p icmp -j ACCEPT
+
+# UDP flood protection
+-A INPUT -p udp -m recent --name udpflooders --update --seconds 10 -j udp-flood
+-A INPUT -p udp -m limit --limit 10/s --limit-burst 10 -j ACCEPT
+-A INPUT -p udp -m recent --name udpflooders --set  -j DROP
+
+# SYN flood protection
+-A INPUT -p tcp --syn -m recent --name synflooders --update --seconds 10 -j syn-flood
+-A INPUT -p tcp --syn -m limit --limit 2/s --limit-burst 5 -j ACCEPT
+-A INPUT -p tcp --syn -m recent --name synflooders --set  -j DROP
+
+# Open ports:
+# ssh
+-A OUTPUT -p tcp -m tcp --dport 4444 -j ACCEPT
+# dns
+-A OUTPUT -p udp --dport 53 -j ACCEPT
+# http
+-A OUTPUT -p tcp --dport 80 -j ACCEPT
+# https
+-A OUTPUT -p tcp --dport 443 -j ACCEPT
+# smtp
+-A OUTPUT -p tcp --dport 587 -j ACCEPT
+
+COMMIT
