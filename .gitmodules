@@ -1,0 +1,3 @@
+[submodule "simple_html"]
+	path = simple_html
+	url = https://github.com/sharvas/simple_html
