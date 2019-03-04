@@ -1,6 +1,6 @@
 # sysadmin 101
 
-The second sysadmin project for the basics about system and network administration. The project consists of three parts: setting up the VM, network, security and the web server. For the details please check out the [subject](https://github.com/sharvas/roger_skyline/raw/master/roger-skyline-1.5.en.pdf).
+The second sysadmin project for the basics of system and network administration. The project consists of three parts: setting up the VM, network, security and the web server. For the details please check out the [subject](https://github.com/sharvas/roger_skyline/raw/master/roger-skyline-1.5.en.pdf).
 
 ***VM part:***
 * setting up a VM with the chosen Linux distribution
@@ -21,6 +21,6 @@ The second sysadmin project for the basics about system and network administrati
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5MTM0NjQ1NiwtNTE5NzQwMjA2LC0xMz
+eyJoaXN0b3J5IjpbLTcxNDExMTM4NiwtNTE5NzQwMjA2LC0xMz
 AxODE0MTEyLC0xMzY3OTY5ODY1XX0=
 -->
