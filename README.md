@@ -19,8 +19,8 @@ The second sysadmin project for the basics of system and network administration.
 * hosting a web app in the local network
 * deployment script for the web app
 
-
+How to do it:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNDExMTM4NiwtNTE5NzQwMjA2LC0xMz
-AxODE0MTEyLC0xMzY3OTY5ODY1XX0=
+eyJoaXN0b3J5IjpbMTI2MTAxODU1LC03MTQxMTEzODYsLTUxOT
+c0MDIwNiwtMTMwMTgxNDExMiwtMTM2Nzk2OTg2NV19
 -->
