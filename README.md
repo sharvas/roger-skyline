@@ -56,8 +56,3 @@ Web server configured with **nginx**, SSL key and certificate were generated wit
 * http://blog.sevagas.com/?Iptables-firewall-versus-nmap-and-hping3-32
 * https://superuser.com/questions/900074/does-the-dhcp-server-know-about-static-ip-addresses
 * https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-debian-9
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzY1ODMyMTksLTcxNDExMTM4NiwtNT
-E5NzQwMjA2LC0xMzAxODE0MTEyLC0xMzY3OTY5ODY1XX0=
--->
