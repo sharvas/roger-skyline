@@ -19,8 +19,7 @@ The second sysadmin project for the basics of system and network administration.
 * hosting a web app in the local network
 * deployment script for the web app
 
-For the Linux distribution latest **Debian(amd64)** version was chosen and VM was set up with **VirtualBox**.
-Only SSH server and standard system utilities were intalled during the instalation.
+Latest **Debian(amd64)** version was installed on the VM, that was set up with **VirtualBox**.
 
 ```bash
 sarunas@debian:~$ sudo service --status-all
@@ -42,14 +41,13 @@ sarunas@debian:~$ sudo service --status-all
  [ + ]  udev
 ```
 
-Network configured (```/etc/network/interfaces```) as bridged. And an IP address suggested by DHCP was used to set as static with the netmask of /30. SSH configured (```/etc/ssh/sshd_config```) by setting a custom port for connections, access enabled only with pubkeys and root access disabled.
+Firewall was set up using **iptables** and **iptables-persistent**.
 
-Firewall was set up by using **iptables** and **iptables-persistent**.
 DOS protection was set up with **fail2ban** and rules in iptables.
 
-Web server configured with **nginx**, SSL key and certificate were generated with **openssl**. Deployment was implemented through Github.
+Web server was configured with **nginx**, SSL key and certificate were generated with **openssl**. Deployment was implemented through Github.
 
-**Some useful intformation**:
+**Useful intformation**:
 * https://www.thegeekstuff.com/2011/01/iptables-fundamentals/
 * http://blog.sevagas.com/?Iptables-firewall-versus-nmap-and-hping3
 * http://blog.sevagas.com/?Iptables-firewall-versus-nmap-and,31
