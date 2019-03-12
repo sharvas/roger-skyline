@@ -1,4 +1,4 @@
-# SysAdmin 101 - setting up the VM, network, security and SSL web server
+# SysAdmin 101 - VM, network, security and SSL web server
 
 The second sysadmin project for the basics of system and network administration. The project consists of three parts: setting up the VM, network, security and the web server. For the details please check out the [subject](https://github.com/sharvas/roger_skyline/raw/master/roger-skyline-1.5.en.pdf).
 
