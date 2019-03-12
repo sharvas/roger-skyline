@@ -1,4 +1,4 @@
-# sysadmin 101
+# SysAdmin 101 - setting up the VM, network, security and SSL web server
 
 The second sysadmin project for the basics of system and network administration. The project consists of three parts: setting up the VM, network, security and the web server. For the details please check out the [subject](https://github.com/sharvas/roger_skyline/raw/master/roger-skyline-1.5.en.pdf).
 
@@ -8,9 +8,9 @@ The second sysadmin project for the basics of system and network administration.
 ***Network and Security part:***
 * configuring static IP
 * configuring SSH service
-* setting up firewall
+* setting up the firewall
 * protection against DOS
-* protection agains port scans
+* protection against port scans
 * scripts for system update and crontab monitor
 
 ***Web part:***
@@ -21,7 +21,7 @@ The second sysadmin project for the basics of system and network administration.
 
 Latest **Debian(amd64)** version was installed on the VM, that was set up with **VirtualBox**.
 
-```bash
+```console
 sarunas@debian:~$ sudo service --status-all
  [ - ]  console-setup.sh
  [ + ]  cron
@@ -45,7 +45,7 @@ Firewall was set up using **iptables** and **iptables-persistent**.
 
 DOS protection was set up with **fail2ban** and rules in iptables.
 
-Web server was configured with **nginx**, SSL key and certificate were generated with **openssl**. Deployment was implemented through Github.
+Web server was configured with **nginx**, SSL key and certificate were generated with **openssl**. The deployment was implemented through Github.
 
 **Useful intformation**:
 * https://www.thegeekstuff.com/2011/01/iptables-fundamentals/
