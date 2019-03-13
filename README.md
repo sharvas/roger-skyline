@@ -7,7 +7,7 @@ The second sysadmin project for the basics of system and network administration.
 
 ***Network and Security part:***
 * configuring static IP
-* configuring SSH service
+* configuring SSH service (pubkeys)
 * setting up the firewall
 * protection against DOS
 * protection against port scans
@@ -40,6 +40,8 @@ sarunas@debian:~$ sudo service --status-all
  [ - ]  sudo
  [ + ]  udev
 ```
+
+SSH was configured to allow authorisation only with **pubkeys**, through a custom port and root login was disabled.
 
 Firewall was set up using **iptables** and **iptables-persistent**.
 
